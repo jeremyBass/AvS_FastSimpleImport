@@ -197,6 +197,28 @@ try {
 }
 ```
 
+## Images
+It should be noted that to get images to work correctly you should use it like this.
+```php
+    $data = array(
+        array(
+            'sku' => 'event_'.getUniqueCode(20),
+            'media_gallery' => 82,
+			"_media_attribute_id" => Mage::getSingleton('catalog/product')->getResource()->getAttribute('media_gallery') ->getAttributeId(),
+			"_media_lable" =>"Game Day",
+			"_media_position" => 1,
+			"_media_is_disabled" => 0,
+			"_media_image" => "http://football-weekends.wsu.edu/Content/images/Landing01.jpg",
+			'image' => basename("http://football-weekends.wsu.edu/Content/images/Landing01.jpg"),
+			'small_image' => basename("http://football-weekends.wsu.edu/Content/images/Landing01.jpg"),
+			'thumbnail' => basename("http://football-weekends.wsu.edu/Content/images/Landing01.jpg"),
+        ),
+    );
+
+```
+the `basename()` is used to make sure that they match and get selected.
+
+
 ### Limitations / Wiki
 
 Refer to the [project wiki](https://github.com/avstudnitz/AvS_FastSimpleImport/wiki) for more information on known issues or limitations.
